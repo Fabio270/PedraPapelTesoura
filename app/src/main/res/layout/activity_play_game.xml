@@ -110,7 +110,8 @@
         app:layout_constraintBottom_toTopOf="@id/cpu1Tv"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/rock"
-        android:rotation="180"/>
+        android:rotation="180"
+        android:contentDescription="@string/cpu_selection" />
 
     <ImageView
         android:visibility="gone"
@@ -122,15 +123,19 @@
         app:layout_constraintBottom_toTopOf="@id/cpu1Tv"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/rock"
-        android:rotation="180"/>
+        android:rotation="180"
+        android:contentDescription="@string/cpu_selection" />
 
     <ImageView
+        android:id="@+id/youSelectionImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/linearLayout1"
         app:layout_constraintTop_toTopOf="@id/youTv"
-        android:src="@drawable/paper"/>
+        android:src="@drawable/paper"
+        android:contentDescription="@string/imageviewplayer" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
