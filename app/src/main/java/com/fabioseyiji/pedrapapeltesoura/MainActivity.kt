@@ -12,5 +12,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(amb.root)
+
+        amb.button1v1.setOnClickListener {
+            //TODO
+        }
+
+        amb.button1v2.setOnClickListener{
+            //TODO
+        }
+
+        amb.instructions.setOnClickListener {
+            //TODO
+        }
     }
 }
