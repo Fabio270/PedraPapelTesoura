@@ -15,12 +15,14 @@ class MainActivity : AppCompatActivity() {
 
         amb.button1v1.setOnClickListener {
             val intent = Intent(this, PlayGame::class.java)
-            intent.putExtra("1v1", 1)
+            intent.putExtra("gamemode", 1)
             startActivity(intent)
         }
 
         amb.button1v2.setOnClickListener{
-            //TODO
+            val intent = Intent(this, PlayGame::class.java)
+            intent.putExtra("gamemode", 2)
+            startActivity(intent)
         }
 
         amb.instructions.setOnClickListener {

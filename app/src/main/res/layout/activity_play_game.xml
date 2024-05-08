@@ -109,7 +109,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cpu1Tv"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/rock"
+        android:background="@drawable/rock"
         android:rotation="180"
         android:contentDescription="@string/cpu_selection" />
 
@@ -122,7 +122,7 @@
         app:layout_constraintStart_toEndOf="@id/cpu1SelectionImage"
         app:layout_constraintBottom_toTopOf="@id/cpu1Tv"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/rock"
+        android:background="@drawable/rock"
         android:rotation="180"
         android:contentDescription="@string/cpu_selection" />
 
@@ -134,7 +134,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/linearLayout1"
         app:layout_constraintTop_toTopOf="@id/youTv"
-        android:src="@drawable/paper"
+        android:background="@drawable/paper"
         android:contentDescription="@string/imageviewplayer" />
 
 
