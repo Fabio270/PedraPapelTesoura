@@ -12,4 +12,6 @@
     <string name="scissor">scissor</string>
     <string name="imageviewplayer">A image that refers to the selected option by the real player</string>
     <string name="cpu_selection">a image that refers to the option selected by the cpu</string>
+    <string name="spock">spock</string>
+    <string name="lizard">lizard</string>
 </resources>

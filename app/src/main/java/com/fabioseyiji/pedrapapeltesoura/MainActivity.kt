@@ -25,6 +25,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        amb.button1v1sp.setOnClickListener {
+            val intent = Intent(this, LagartoSpock::class.java)
+            intent.putExtra("gamemode", 3)
+            startActivity(intent)
+        }
+
         amb.instructions.setOnClickListener {
             //TODO
         }

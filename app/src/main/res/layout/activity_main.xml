@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/bg_yellow_"
         android:padding="20dp"
         android:text="@string/_1_vs_1"
@@ -48,6 +48,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button1v1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button1v1sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_yellow_"
+        android:padding="20sp"
+        android:text="Lagarto, Spock"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button1v2" />
 
     <TextView
         android:visibility="invisible"
