@@ -4,7 +4,10 @@ import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.view.View
+import android.widget.Toast
 import com.fabioseyiji.pedrapapeltesoura.databinding.ActivityPlayGameBinding
 
 class PlayGame : AppCompatActivity() {
@@ -24,9 +27,8 @@ class PlayGame : AppCompatActivity() {
     private lateinit var selectionCPU1: String
     private lateinit var selectionCPU2: String
 
-    private var scoreRealPlayer: 0
-    private var scoreCpu1: 0
-    private var scoreCpu2: 0
+    private var scoreRealPlayer = 0
+    private var scoreCpu = 0
 
     private var gameMode = 0
 
@@ -89,6 +91,7 @@ class PlayGame : AppCompatActivity() {
                     binding.cpu2SelectionImage.setBackgroundResource(0)
                 }
                 setSelectedIcon()
+                setScore()
                 endGame()
             }
         }.start()
@@ -130,17 +133,15 @@ class PlayGame : AppCompatActivity() {
     }
 
     private fun endGame(){
-        if (gameMode == 2){
-            if (scoreRealPlayer == 1 || scoreCpu1 == 1 || scoreCpu2 == 1){
+            if (scoreRealPlayer == 1 || scoreCpu == 1){
                 var winner = if (scoreRealPlayer == 1)
                     "You"
-                else if (scoreCpu1 == 1)
-                    "CPU1"
                 else
-                    "CPU2"
-                finish()
+                    "CPU"
+                Handler(Looper.getMainLooper()).postDelayed({
+                    finish()
+                }, 2000)
             }
-        }
     }
 
     private fun getResult(): String{
@@ -152,7 +153,7 @@ class PlayGame : AppCompatActivity() {
                     (selectionRealPlayer == "scissor" && selectionCPU1 == "paper"))
                 "you"
             else
-                "CPU1"
+                "CPU"
         }
         else{
             val playerWinsCPU1 = (selectionRealPlayer == "Rock" && selectionCPU1 == "scissor") ||
@@ -165,6 +166,8 @@ class PlayGame : AppCompatActivity() {
 
             return if (selectionRealPlayer == selectionCPU1 && selectionRealPlayer == selectionCPU2)
                 "tie"
+            else if (selectionRealPlayer != selectionCPU1 && selectionRealPlayer != selectionCPU2 && selectionCPU1 != selectionCPU2)
+                "tie"
             else if (playerWinsCPU1 && playerWinsCPU2)
                 "you"
             else if (playerWinsCPU1 && selectionRealPlayer == selectionCPU2)
@@ -172,11 +175,27 @@ class PlayGame : AppCompatActivity() {
             else if (playerWinsCPU2 && selectionRealPlayer == selectionCPU1)
                 "tie"
             else
-                "defeat"
+                "CPU"
         }
     }
 
-    override fun onDestroy() {
+    private fun setScore()
+    {
+        if (getResult()=="you")
+        {
+            scoreRealPlayer++
+            Toast.makeText(this, "YOU WON!", Toast.LENGTH_SHORT).show()
+        }
+        else if (getResult() == "CPU"){
+            scoreCpu++
+            Toast.makeText(this, "CPU WON!", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            Toast.makeText(this, "TIE!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+     override fun onDestroy() {
         super.onDestroy()
         setTime = null
     }
