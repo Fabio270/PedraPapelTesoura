@@ -23,6 +23,11 @@ class PlayGame : AppCompatActivity() {
     private lateinit var selectionRealPlayer: String
     private lateinit var selectionCPU1: String
     private lateinit var selectionCPU2: String
+
+    private var scoreRealPlayer: 0
+    private var scoreCpu1: 0
+    private var scoreCpu2: 0
+
     private var gameMode = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,5 +127,24 @@ class PlayGame : AppCompatActivity() {
                 "scissor" -> binding.cpu2SelectionImage.setImageResource(R.drawable.scissor)
             }
         }
+    }
+
+    private fun endGame(){
+        if (gameMode == 2){
+            if (scoreRealPlayer == 1 || scoreCpu1 == 1 || scoreCpu2 == 1){
+                var winner = if (scoreRealPlayer == 1)
+                    "You"
+                else if (scoreCpu1 == 1)
+                    "CPU1"
+                else
+                    "CPU2"
+                finish()
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        setTime = null
     }
 }
