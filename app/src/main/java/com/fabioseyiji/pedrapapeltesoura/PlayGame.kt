@@ -143,6 +143,39 @@ class PlayGame : AppCompatActivity() {
         }
     }
 
+    private fun getResult(): String{
+        if (gameMode == 1){
+            return if (selectionRealPlayer == selectionCPU1)
+                "tie"
+            else if ((selectionRealPlayer == "rock" && selectionCPU1 == "scissor") ||
+                    (selectionRealPlayer == "paper" && selectionCPU1 == "rock") ||
+                    (selectionRealPlayer == "scissor" && selectionCPU1 == "paper"))
+                "you"
+            else
+                "CPU1"
+        }
+        else{
+            val playerWinsCPU1 = (selectionRealPlayer == "Rock" && selectionCPU1 == "scissor") ||
+                    (selectionRealPlayer == "paper" && selectionCPU1 == "rock") ||
+                    (selectionRealPlayer == "scissor" && selectionCPU1 == "paper")
+
+            val playerWinsCPU2 = (selectionRealPlayer == "Rock" && selectionCPU2 == "scissor") ||
+                    (selectionRealPlayer == "paper" && selectionCPU2 == "rock") ||
+                    (selectionRealPlayer == "scissor" && selectionCPU2 == "paper")
+
+            return if (selectionRealPlayer == selectionCPU1 && selectionRealPlayer == selectionCPU2)
+                "tie"
+            else if (playerWinsCPU1 && playerWinsCPU2)
+                "you"
+            else if (playerWinsCPU1 && selectionRealPlayer == selectionCPU2)
+                "tie"
+            else if (playerWinsCPU2 && selectionRealPlayer == selectionCPU1)
+                "tie"
+            else
+                "defeat"
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         setTime = null
