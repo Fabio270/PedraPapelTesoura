@@ -133,11 +133,7 @@ class PlayGame : AppCompatActivity() {
     }
 
     private fun endGame(){
-            if (scoreRealPlayer == 1 || scoreCpu == 1){
-                var winner = if (scoreRealPlayer == 1)
-                    "You"
-                else
-                    "CPU"
+            if (scoreRealPlayer == 2 || scoreCpu == 2){
                 Handler(Looper.getMainLooper()).postDelayed({
                     finish()
                 }, 2000)
@@ -156,11 +152,11 @@ class PlayGame : AppCompatActivity() {
                 "CPU"
         }
         else{
-            val playerWinsCPU1 = (selectionRealPlayer == "Rock" && selectionCPU1 == "scissor") ||
+            val playerWinsCPU1 = (selectionRealPlayer == "rock" && selectionCPU1 == "scissor") ||
                     (selectionRealPlayer == "paper" && selectionCPU1 == "rock") ||
                     (selectionRealPlayer == "scissor" && selectionCPU1 == "paper")
 
-            val playerWinsCPU2 = (selectionRealPlayer == "Rock" && selectionCPU2 == "scissor") ||
+            val playerWinsCPU2 = (selectionRealPlayer == "rock" && selectionCPU2 == "scissor") ||
                     (selectionRealPlayer == "paper" && selectionCPU2 == "rock") ||
                     (selectionRealPlayer == "scissor" && selectionCPU2 == "paper")
 
