@@ -134,10 +134,6 @@ class PlayGame : AppCompatActivity() {
 
     private fun endGame(){
             if (scoreRealPlayer == 1 || scoreCpu == 1){
-                var winner = if (scoreRealPlayer == 1)
-                    "You"
-                else
-                    "CPU"
                 Handler(Looper.getMainLooper()).postDelayed({
                     finish()
                 }, 2000)
@@ -170,10 +166,6 @@ class PlayGame : AppCompatActivity() {
                 "tie"
             else if (playerWinsCPU1 && playerWinsCPU2)
                 "you"
-            else if (playerWinsCPU1 && selectionRealPlayer == selectionCPU2)
-                "tie"
-            else if (playerWinsCPU2 && selectionRealPlayer == selectionCPU1)
-                "tie"
             else
                 "CPU"
         }
